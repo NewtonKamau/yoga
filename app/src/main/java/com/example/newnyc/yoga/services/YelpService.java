@@ -1,5 +1,8 @@
-package com.example.newnyc.yoga;
+package com.example.newnyc.yoga.services;
 
+
+import com.example.newnyc.yoga.ui.Constants;
+import com.example.newnyc.yoga.model.Studio;
 
 import org.json.JSONArray;
 import org.json.JSONException;

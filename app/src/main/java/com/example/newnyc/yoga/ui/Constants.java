@@ -1,4 +1,6 @@
-package com.example.newnyc.yoga;
+package com.example.newnyc.yoga.ui;
+
+import com.example.newnyc.yoga.BuildConfig;
 
 /**
  * Created by newnyc on 4/3/17.

@@ -1,4 +1,4 @@
-package com.example.newnyc.yoga;
+package com.example.newnyc.yoga.model;
 
 import java.util.ArrayList;
 

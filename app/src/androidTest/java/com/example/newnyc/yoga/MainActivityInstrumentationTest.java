@@ -2,6 +2,8 @@ package com.example.newnyc.yoga;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.example.newnyc.yoga.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

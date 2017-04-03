@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.newnyc.yoga.StudioActivity">
+    tools:context="com.example.newnyc.yoga.ui.StudioActivity">
 
+    <!--recycler view-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
     <!--<ImageView-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="match_parent"-->
@@ -22,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Studios near"
+        android:text=""
         android:textColor="@color/colorAccent"
         android:background="@color/colorTextIcons"
         android:id="@+id/locationTextView"

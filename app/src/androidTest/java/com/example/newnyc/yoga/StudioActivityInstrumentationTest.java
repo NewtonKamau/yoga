@@ -3,6 +3,8 @@ package com.example.newnyc.yoga;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
+import com.example.newnyc.yoga.ui.StudioActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 
