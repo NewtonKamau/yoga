@@ -54,12 +54,6 @@ public class Studio {
 
     public  String getImageUrl() { return  mImageUrl; }
 
-//    public String getLargeImageUrl(String l){
-//        String largeImageUrl = l.substring(0, l.length() -6).concat("0.jpg");
-//
-//        return largeImageUrl;
-//    }
-
     public ArrayList<String> getAddress() {
         return mAddress;
     }
