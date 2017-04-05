@@ -13,13 +13,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.newnyc.yoga.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
+
+    private DatabaseReference mSearchedLocationReference;
+
     @Bind(R.id.findStudioButton) Button mFindStudioButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNametextView) TextView mAppNameTextView;
@@ -30,8 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
+        mSearchedLocationReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
 
         mFindStudioButton.setOnClickListener(this);
 
@@ -44,18 +53,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v){
         if (v == mFindStudioButton){
             String location = mLocationEditText.getText().toString();
-            if(!(location).equals("")) {
-                addTosharedPreferences(location);
-            }
-
+            saveLocationToFirebase(location);
+//            if(!(location).equals("")) {
+////                addTosharedPreferences(location);
+//            }
         Intent intent = new Intent(MainActivity.this, StudioListActivity.class);
-
+        intent.putExtra("location", location);
         startActivity(intent);
     }
+    }
+
+    public  void saveLocationToFirebase(String location) {
+        mSearchedLocationReference.push().setValue(location);
 
     }
-    private  void addTosharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-
-    }
+//    private  void addTosharedPreferences(String location) {
+//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+//
+//    }
 }

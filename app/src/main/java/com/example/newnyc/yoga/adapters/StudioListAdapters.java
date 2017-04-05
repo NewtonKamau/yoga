@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 import static java.lang.System.load;
 
 public class StudioListAdapters extends RecyclerView.Adapter<StudioListAdapters.StudioViewHolder> {
-    public static final String TAG = StudioListActivity.class.getSimpleName();
 
     private ArrayList<Studio> mStudio = new ArrayList<>();
     private static final int MAX_WIDTH = 200;
@@ -84,7 +83,7 @@ public class StudioListAdapters extends RecyclerView.Adapter<StudioListAdapters.
                     .load(studio.getImageUrl())
                     .into(mStudioImageView);
 
-            Log.d(TAG,  "Test" + studio.getImageUrl());
+//            Log.d(TAG,  "Test" + studio.getImageUrl());
             mNameTextView.setText(studio.getName());
             mCategoryTextView.setText(studio.getCategories().get(0));
             mRatingTextView.setText("Rating: " + studio.getRating() + "/5");

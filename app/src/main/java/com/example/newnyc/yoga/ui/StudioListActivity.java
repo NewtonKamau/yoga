@@ -28,17 +28,15 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class StudioListActivity extends AppCompatActivity {
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StudioListAdapters mAdapter;
 
     @Bind(R.id.locationTextView)
     TextView mLocationTextView;
-    @Bind(R.id.listView)
-    ListView mListView;
-
+    @Bind(R.id.listView)  ListView mListView;
     public ArrayList<Studio> mStudio = new ArrayList<>();
 
     @Override
@@ -46,13 +44,6 @@ public class StudioListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studio);
         ButterKnife.bind(this);
-
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if(mRecentAddress != null) {
-            getStudio(mRecentAddress);
-        }
-
         Intent intent = getIntent();
         Toast.makeText(StudioListActivity.this, "studios", Toast.LENGTH_SHORT).show();
         String location = intent.getStringExtra("location");
@@ -72,7 +63,6 @@ public class StudioListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                     mStudio = yelpService.processResults(response);
-
                     StudioListActivity.this.runOnUiThread(new Runnable() {
 
                         @Override
@@ -88,4 +78,10 @@ public class StudioListActivity extends AppCompatActivity {
                 }
         });
     }
+    //
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        if(mRecentAddress != null) {
+//            getStudio(mRecentAddress);
+//        }
 }

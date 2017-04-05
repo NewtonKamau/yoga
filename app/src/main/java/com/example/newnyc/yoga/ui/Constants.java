@@ -8,7 +8,9 @@ import com.example.newnyc.yoga.BuildConfig;
 
 public class Constants {
 //    adding prefarences to help store the data
-    public static final String PREFERENCES_LOCATION_KEY = "location";
+//    public static final String PREFERENCES_LOCATION_KEY = "location";
+//    creating firebase object
+    public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
     public static final String YELP_CONSUMER_KEY = BuildConfig.YELP_CONSUMER_KEY;
     public static final String YELP_CONSUMER_SECRET = BuildConfig.YELP_CONSUMER_SECRET;
     public static final String YELP_TOKEN = BuildConfig.YELP_TOKEN;

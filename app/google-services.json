@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "447965076836",
+    "firebase_url": "https://yoga-6972b.firebaseio.com",
+    "project_id": "yoga-6972b",
+    "storage_bucket": "yoga-6972b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447965076836:android:3e268f0a31bff0a7",
+        "android_client_info": {
+          "package_name": "com.example.newnyc.yoga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447965076836-kuvb0qvtp4i5dfc6tr0ejt088dbtrn96.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newnyc.yoga",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "447965076836-k86ahgobi97m5ujs422lcbiebph0k473.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNbgdkykivQM5N2f5ooYIvq59siO0PHr0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447965076836-k86ahgobi97m5ujs422lcbiebph0k473.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
