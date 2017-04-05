@@ -2,10 +2,13 @@ package com.example.newnyc.yoga.ui;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +28,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class StudioListActivity extends AppCompatActivity {
-    public static final String TAG = StudioListActivity.class.getSimpleName();
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StudioListAdapters mAdapter;
@@ -43,12 +47,15 @@ public class StudioListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_studio);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if(mRecentAddress != null) {
+            getStudio(mRecentAddress);
+        }
+
         Intent intent = getIntent();
-        Toast.makeText(StudioListActivity.this, "studio", Toast.LENGTH_LONG).show();
+        Toast.makeText(StudioListActivity.this, "studios", Toast.LENGTH_SHORT).show();
         String location = intent.getStringExtra("location");
-
-//        mLocationTextView.setText("Here are all the studios near: " + location);
-
         getStudio(location);
     }
 
