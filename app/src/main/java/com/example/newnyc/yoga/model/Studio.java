@@ -54,11 +54,11 @@ public class Studio {
 
     public  String getImageUrl() { return  mImageUrl; }
 
-    public String getLargeImageUrl(String imageUrl){
-        String largeImageUrl = imageUrl.substring(0, imageUrl.length() -6).concat("0.jpg");
-
-        return largeImageUrl;
-    }
+//    public String getLargeImageUrl(String l){
+//        String largeImageUrl = l.substring(0, l.length() -6).concat("0.jpg");
+//
+//        return largeImageUrl;
+//    }
 
     public ArrayList<String> getAddress() {
         return mAddress;
@@ -74,5 +74,10 @@ public class Studio {
 
     public ArrayList<String> getCategories() {
         return mCategories;
+    }
+
+    public String getLargeImageUrl(String imageUrl){
+        String largeImage = imageUrl.substring(0, imageUrl.length()-6).concat("o.jpg");
+        return largeImage;
     }
 }

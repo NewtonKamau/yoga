@@ -26,6 +26,7 @@ import okhttp3.Response;
 
 public class StudioListActivity extends AppCompatActivity {
     public static final String TAG = StudioListActivity.class.getSimpleName();
+
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StudioListAdapters mAdapter;
 

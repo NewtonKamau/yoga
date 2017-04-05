@@ -17,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class StudioDetailActivity extends AppCompatActivity {
+
     @Bind(R.id.viewPager) ViewPager mViewpager;
     private StudioPagerAdapter adapterViewPager;
     ArrayList<Studio> mStudio = new ArrayList<>();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcel;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.example.newnyc.yoga.R;
 import com.example.newnyc.yoga.model.Studio;
 import com.example.newnyc.yoga.ui.StudioDetailActivity;
+import com.example.newnyc.yoga.ui.StudioListActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -25,6 +27,8 @@ import butterknife.ButterKnife;
 import static java.lang.System.load;
 
 public class StudioListAdapters extends RecyclerView.Adapter<StudioListAdapters.StudioViewHolder> {
+    public static final String TAG = StudioListActivity.class.getSimpleName();
+
     private ArrayList<Studio> mStudio = new ArrayList<>();
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
@@ -78,9 +82,9 @@ public class StudioListAdapters extends RecyclerView.Adapter<StudioListAdapters.
         public void bindStudio(Studio studio) {
             Picasso.with(mContext)
                     .load(studio.getImageUrl())
-                    .resize(MAX_WIDTH, MAX_HEIGHT)
-                    .centerCrop()
                     .into(mStudioImageView);
+
+            Log.d(TAG,  "Test" + studio.getImageUrl());
             mNameTextView.setText(studio.getName());
             mCategoryTextView.setText(studio.getCategories().get(0));
             mRatingTextView.setText("Rating: " + studio.getRating() + "/5");

@@ -3,6 +3,7 @@ package com.example.newnyc.yoga.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,13 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class StudioDetailFragment extends Fragment {
+    public static final String TAG = StudioDetailFragment.class.getSimpleName();
 
     @Bind(R.id.studioImageView) ImageView mImageLabel;
     @Bind(R.id.studioNameTextView) TextView mNameLabel;
@@ -59,6 +63,7 @@ public class StudioDetailFragment extends Fragment {
                 .load(mStudio.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop().into(mImageLabel);
+        Log.d(TAG, mStudio.getImageUrl());
 
         Picasso.with(view.getContext()).load(mStudio.getImageUrl()).into(mImageLabel);
 
