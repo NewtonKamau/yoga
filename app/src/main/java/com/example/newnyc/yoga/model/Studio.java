@@ -1,10 +1,13 @@
 package com.example.newnyc.yoga.model;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
 /**
  * Created by newnyc on 4/3/17.
  */
+@Parcel
 
 public class Studio {
 
@@ -18,6 +21,7 @@ public class Studio {
     private double mLongitude;
     private ArrayList<String> mCategories = new ArrayList<>();
 
+    public Studio() {}
     public Studio(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
                       double latitude, double longitude, ArrayList<String> categories) {
@@ -25,7 +29,7 @@ public class Studio {
         this.mPhone = phone;
         this.mWebsite = website;
         this.mRating = rating;
-        this.mImageUrl = imageUrl;
+        this.mImageUrl = getLargeImageUrl(imageUrl);
         this.mAddress = address;
         this.mLatitude = latitude;
         this.mLongitude = longitude;
@@ -48,8 +52,12 @@ public class Studio {
         return mRating;
     }
 
-    public String getImageUrl(){
-        return mImageUrl;
+    public  String getImageUrl() { return  mImageUrl; }
+
+    public String getLargeImageUrl(String imageUrl){
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() -6).concat("0.jpg");
+
+        return largeImageUrl;
     }
 
     public ArrayList<String> getAddress() {

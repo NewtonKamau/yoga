@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +24,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class StudioActivity extends AppCompatActivity {
-    public static final String TAG = StudioActivity.class.getSimpleName();
+public class StudioListActivity extends AppCompatActivity {
+    public static final String TAG = StudioListActivity.class.getSimpleName();
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private StudioListAdapters mAdapter;
 
@@ -45,7 +43,7 @@ public class StudioActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        Toast.makeText(StudioActivity.this, "studio", Toast.LENGTH_LONG).show();
+        Toast.makeText(StudioListActivity.this, "studio", Toast.LENGTH_LONG).show();
         String location = intent.getStringExtra("location");
 
 //        mLocationTextView.setText("Here are all the studios near: " + location);
@@ -67,14 +65,14 @@ public class StudioActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                     mStudio = yelpService.processResults(response);
 
-                    StudioActivity.this.runOnUiThread(new Runnable() {
+                    StudioListActivity.this.runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
                             mAdapter = new StudioListAdapters(getApplicationContext(), mStudio);
                             mRecyclerView.setAdapter(mAdapter);
                             RecyclerView.LayoutManager layoutManager =
-                                    new LinearLayoutManager(StudioActivity.this);
+                                    new LinearLayoutManager(StudioListActivity.this);
                             mRecyclerView.setLayoutManager(layoutManager);
                             mRecyclerView.setHasFixedSize(true);
                         }

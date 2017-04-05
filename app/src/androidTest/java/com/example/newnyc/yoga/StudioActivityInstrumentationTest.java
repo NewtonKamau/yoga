@@ -3,7 +3,7 @@ package com.example.newnyc.yoga;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
-import com.example.newnyc.yoga.ui.StudioActivity;
+import com.example.newnyc.yoga.ui.StudioListActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,8 +26,8 @@ public class StudioActivityInstrumentationTest {
 
 
     @Rule
-    public ActivityTestRule<StudioActivity> activityTestRule =
-            new ActivityTestRule<>(StudioActivity.class);
+    public ActivityTestRule<StudioListActivity> activityTestRule =
+            new ActivityTestRule<>(StudioListActivity.class);
 
     @Test
     public void listItemClickDisplaysToastWithCorrectStudio() {

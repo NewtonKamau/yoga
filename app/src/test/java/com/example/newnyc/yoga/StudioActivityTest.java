@@ -17,12 +17,12 @@ import static junit.framework.Assert.assertNotNull;
 //@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 //@RunWith(RobolectricGradleTestRunner.class)
 //public class StudioActivityTest {
-//    private  StudioActivity activity;
+//    private  StudioListActivity activity;
 //    private ListView mStudioListView;
 //
 //    @Before
 //    public void setup() {
-//        activity = Robolectric.setupActivity(StudioActivity.class);
+//        activity = Robolectric.setupActivity(StudioListActivity.class);
 //        mStudioListView = (ListView) activity.findViewById(R.id.listView);
 //    }
 //

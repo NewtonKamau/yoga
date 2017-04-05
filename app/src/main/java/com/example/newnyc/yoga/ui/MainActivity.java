@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mFindStudioButton){
             String location = mLocationEditText.getText().toString();
         Toast.makeText(MainActivity.this, "find a yoga studio", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MainActivity.this, StudioActivity.class);
+        Intent intent = new Intent(MainActivity.this, StudioListActivity.class);
         intent.putExtra("location", location);
         startActivity(intent);
     }

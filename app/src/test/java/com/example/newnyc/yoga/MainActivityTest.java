@@ -5,7 +5,7 @@ import android.os.Build;
 import android.widget.TextView;
 
 import com.example.newnyc.yoga.ui.MainActivity;
-import com.example.newnyc.yoga.ui.StudioActivity;
+import com.example.newnyc.yoga.ui.StudioListActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted() {
         activity.findViewById(R.id.findStudioButton).performClick();
-        Intent expectedIntent = new Intent(activity, StudioActivity.class);
+        Intent expectedIntent = new Intent(activity, StudioListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent  actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));
