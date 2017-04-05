@@ -3,73 +3,73 @@ package com.example.newnyc.yoga.model;
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by newnyc on 4/3/17.
  */
 @Parcel
 
-public class Studio {
+    public class Studio {
+        String name;
+        String phone;
+        String website;
+        double rating;
+        String imageUrl;
+        List<String> address = new ArrayList<>();
+        double latitude;
+        double longitude;
+        List<String> categories = new ArrayList<>();
 
-    private String mName;
-    private String mPhone;
-    private String mWebsite;
-    private double mRating;
-    private String mImageUrl;
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private double mLatitude;
-    private double mLongitude;
-    private ArrayList<String> mCategories = new ArrayList<>();
+        public Studio() {}
 
-    public Studio() {}
-    public Studio(String name, String phone, String website,
-                      double rating, String imageUrl, ArrayList<String> address,
-                      double latitude, double longitude, ArrayList<String> categories) {
-        this.mName = name;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mRating = rating;
-        this.mImageUrl = getLargeImageUrl(imageUrl);
-        this.mAddress = address;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
-        this.mCategories = categories;
-    }
+        public Studio(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude, ArrayList<String> categories) {
+            this.name = name;
+            this.phone = phone;
+            this.website = website;
+            this.rating = rating;
+            this.imageUrl = getLargeImageUrl(imageUrl);
+            this.address = address;
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.categories = categories;
+        }
 
-    public String getName() {
-        return mName;
-    }
+        public String getName() {
+            return name;
+        }
 
-    public String getPhone() {
-        return mPhone;
-    }
+        public String getPhone() {
+            return phone;
+        }
 
-    public String getWebsite() {
-        return  mWebsite;
-    }
+        public String getWebsite() {
+            return website;
+        }
 
-    public double getRating() {
-        return mRating;
-    }
+        public double getRating() {
+            return rating;
+        }
 
-    public  String getImageUrl() { return  mImageUrl; }
+        public String getImageUrl() {
+            return imageUrl;
+        }
 
-    public ArrayList<String> getAddress() {
-        return mAddress;
-    }
+        public List<String> getAddress() {
+            return address;
+        }
 
-    public double getLatitude() {
-        return mLatitude;
-    }
+        public double getLatitude() {
+            return latitude;
+        }
 
-    public double getLongitude() {
-        return mLongitude;
-    }
+        public double getLongitude() {
+            return longitude;
+        }
 
-    public ArrayList<String> getCategories() {
-        return mCategories;
-    }
-
+        public List<String> getCategories() {
+            return categories;
+        }
     public String getLargeImageUrl(String imageUrl){
         String largeImage = imageUrl.substring(0, imageUrl.length()-6).concat("o.jpg");
         return largeImage;

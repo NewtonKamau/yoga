@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.newnyc.yoga.R;
 import com.example.newnyc.yoga.model.Studio;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -23,9 +26,8 @@ import butterknife.ButterKnife;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
+
 public class StudioDetailFragment extends Fragment implements  View.OnClickListener{
 
     @Bind(R.id.studioImageView)
@@ -81,6 +83,7 @@ public class StudioDetailFragment extends Fragment implements  View.OnClickListe
         mNameLabel.setText(mStudio.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mStudio.getCategories()));
         mRatingLabel.setText(Double.toString(mStudio.getRating()) + "/5");
+        mSaveStudioButton.setOnClickListener(this);
 //        mPhoneLabel.setText(mStudio.getPhone());
 //        mAddressLabel.setText(android.text.TextUtils.join(", ", mStudio.getAddress()));
 
@@ -105,6 +108,13 @@ public class StudioDetailFragment extends Fragment implements  View.OnClickListe
                             + "," + mStudio.getLongitude()
                             + "?q=(" + mStudio.getName() + ")"));
             startActivity(mapIntent);
+        }
+        if (v == mSaveStudioButton) {
+            DatabaseReference studioRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_STUDIO);
+            studioRef.push().setValue(mStudio);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
