@@ -1,8 +1,10 @@
 package com.example.newnyc.yoga.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,8 +23,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
 
     private DatabaseReference mSearchedLocationReference;
@@ -39,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mSearchedLocationReference = FirebaseDatabase
                 .getInstance()
@@ -77,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mFindStudioButton){
             String location = mLocationEditText.getText().toString();
             saveLocationToFirebase(location);
-//            if(!(location).equals("")) {
-////                addTosharedPreferences(location);
-//            }
+            if(!(location).equals("")) {
+              addTosharedPreferences(location);
+            }
         Intent intent = new Intent(MainActivity.this, StudioListActivity.class);
         intent.putExtra("location", location);
 
@@ -103,8 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
     }
-//    private  void addTosharedPreferences(String location) {
-//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-//
-//    }
+    private  void addTosharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+
+    }
 }

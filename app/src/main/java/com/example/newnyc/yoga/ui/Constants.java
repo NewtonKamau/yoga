@@ -8,7 +8,7 @@ import com.example.newnyc.yoga.BuildConfig;
 
 public class Constants {
 //    adding prefarences to help store the data
-//    public static final String PREFERENCES_LOCATION_KEY = "location";
+    public static final String PREFERENCES_LOCATION_KEY = "location";
 //    saving a restaurant to Firebase
     public  static  final String FIREBASE_CHILD_STUDIO = "studio";
 //    creating firebase object

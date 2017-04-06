@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,6 @@ import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
-import static android.content.ContentValues.TAG;
 
 
 
@@ -84,8 +81,8 @@ public class StudioDetailFragment extends Fragment implements  View.OnClickListe
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mStudio.getCategories()));
         mRatingLabel.setText(Double.toString(mStudio.getRating()) + "/5");
         mSaveStudioButton.setOnClickListener(this);
-//        mPhoneLabel.setText(mStudio.getPhone());
-//        mAddressLabel.setText(android.text.TextUtils.join(", ", mStudio.getAddress()));
+        mPhoneLabel.setText(mStudio.getPhone());
+        mAddressLabel.setText(android.text.TextUtils.join(", ", mStudio.getAddress()));
 
         return view;
     }
