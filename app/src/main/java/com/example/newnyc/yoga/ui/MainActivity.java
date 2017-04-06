@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         startActivity(intent);
     }
+
 //        An intent to view the saved studio when clicked
         if (v == msavedStudioButton) {
             Intent intent = new Intent(MainActivity.this, SavedStudioListActivity.class);
