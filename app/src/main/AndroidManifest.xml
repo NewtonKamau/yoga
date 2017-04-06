@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.StudioListActivity" />
-        <activity android:name=".ui.StudioDetailActivity"></activity>
+        <activity android:name=".ui.StudioDetailActivity" />
+        <activity android:name=".ui.SavedStudioListActivity"></activity>
     </application>
 
 </manifest>

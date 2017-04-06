@@ -16,33 +16,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Yoga Studio"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
         android:id="@+id/appNametextView"
         android:textColor="@color/colorTextIcons"
         android:textSize="60sp"
         android:textStyle="bold"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
-        android:layout_above="@+id/findStudioButton"
-        android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/savedStudioButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Saved Studio"
+        android:id="@+id/savedStudioButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_above="@+id/findStudioButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Studios"
         android:id="@+id/findStudioButton"
+        android:visibility="visible"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp" />
 </RelativeLayout>

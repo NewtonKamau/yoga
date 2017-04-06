@@ -57,6 +57,9 @@ dependencies {
     androidTestCompile('com.android.support.test:runner:0.3') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+//    adding firebase recyclerView
+    compile 'com.firebaseui:firebase-ui-database:0.4.1'
+//    adding Firebase to our app
     compile 'com.google.firebase:firebase-database:9.2.1'
     compile 'org.parceler:parceler-api:1.1.6'
     annotationProcessor 'org.parceler:parceler:1.1.6'

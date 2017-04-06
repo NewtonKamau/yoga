@@ -9,20 +9,20 @@ import com.example.newnyc.yoga.ui.StudioListActivity;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
 import static junit.framework.Assert.assertTrue;
+
+//import org.robolectric.RobolectricGradleTestRunner;
 
 /**
  * Created by newnyc on 3/30/17.
  */
 
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricGradleTestRunner.class)
+//@RunWith(RobolectricGradleTestRunner.class)
 public class MainActivityTest {
     private MainActivity activity;
 
