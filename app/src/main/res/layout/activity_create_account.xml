@@ -25,7 +25,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
             android:textSize="20sp" />
 
@@ -39,7 +39,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
             android:textSize="20sp" />
 
@@ -53,7 +53,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
             android:textSize="20sp" />
 
@@ -67,7 +67,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
             android:textSize="20sp" />
 

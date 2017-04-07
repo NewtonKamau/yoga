@@ -88,7 +88,7 @@ public class StudioListActivity extends AppCompatActivity {
 
             return true;
         }
-    //        this helps access from main activity more functionality
+    //        this helps access from menu_main activity more functionality
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
