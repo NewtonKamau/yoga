@@ -23,8 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.zip.Inflater;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -80,6 +78,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msavedStudioButton.setOnClickListener(this);
 
     }
+    //    creating the option menu method
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    //    this method will tell our app what to do when the user clicks on the option button
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //    logout method
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
     @Override
     public void onClick(View v){
         if (v == mFindStudioButton){
@@ -102,43 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public  void saveLocationToFirebase(String location) {
-        mSearchedLocationReference.push().setValue(location);
 
-    }
-//    this will stop/destroy eventlistener() when the user is not interacting with db
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
-    }
-    private  void addTosharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
 
-    }
-//    creating the option menu method
-    @Override
-    public  boolean onCreateOptionMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
 
-    }
-//    this method will tell our app what to do when the user clicks on the option button
-    @Override
-    public  boolean onOptionItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            logout();
-            return  true;
-        }
-        return  super.onOptionsItemSelected(item);
-    }
-//    logout method
-private void logout() {
-    FirebaseAuth.getInstance().signOut();
-    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    startActivity(intent);
-    finish();
-}
 }
