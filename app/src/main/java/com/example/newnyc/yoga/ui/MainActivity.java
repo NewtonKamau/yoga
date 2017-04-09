@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -128,6 +129,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public  void saveLocationToFirebase(String location) {
+        mSearchedLocationReference.push().setValue(location);
+
+    }
+//    this will stop/destroy eventlistener() when the user is not interacting with db
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
+    }
+    private  void addTosharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+
+    }
+
 
 
 
