@@ -1,6 +1,7 @@
 package com.example.newnyc.yoga.ui;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +26,7 @@ public class CreateAccountActivity extends Activity implements View.OnClickListe
 
     public  static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
+    private ProgressDialog mAuthProgressDialog;
 //    authentication listener
     private FirebaseAuth.AuthStateListener mAuthListener;
     @Bind(R.id.createUserButton) Button mCreateUserButton;
@@ -39,7 +41,6 @@ public class CreateAccountActivity extends Activity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
-
 //        put clickListener to our button
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
@@ -47,6 +48,10 @@ public class CreateAccountActivity extends Activity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
 //        authentication listener
         createAuthStateListener();
+
+        //        to alert the user the app is loading
+    createAuthProgressDialog();
+
 
     }
 //    method to get a new user sign up
@@ -63,25 +68,41 @@ public class CreateAccountActivity extends Activity implements View.OnClickListe
             createNewUser();
         }
     }
+    public  void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+    }
 
 //    create new user method
-    private  void createNewUser() {
-        final String name = mNameEditText.getText().toString().trim();
-        final  String email = mEmailEditText.getText().toString().trim();
-        String password = mPasswordEditText.getText().toString().trim();
-        String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            Log.d(TAG, "Authentication successful");
-                        } else{
-                          Toast.makeText(CreateAccountActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-               });
-    }
+public void createNewUser() {
+    final String name = mNameEditText.getText().toString().trim();
+    final String email = mEmailEditText.getText().toString().trim();
+    String password = mPasswordEditText.getText().toString().trim();
+    String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+
+    boolean validEmail = isValidEmail(email);
+    boolean validName = isValidName(name);
+    boolean validPassword = isValidPassword(password, confirmPassword);
+    if (!validEmail || !validName || !validPassword) return;
+    mAuthProgressDialog.show();
+    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+        @Override
+        public void onComplete(@NonNull Task<AuthResult> task) {
+            mAuthProgressDialog.dismiss();
+            if (task.isSuccessful()) {
+                Log.d(TAG, "Authentication successful");
+            } else {
+                Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    });
+}
     public  void  createAuthStateListener() {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
