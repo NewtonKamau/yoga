@@ -1,4 +1,4 @@
-package com.example.newnyc.yoga;
+package com.example.newnyc.yoga.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

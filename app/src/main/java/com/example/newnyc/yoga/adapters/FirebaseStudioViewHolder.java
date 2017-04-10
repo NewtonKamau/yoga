@@ -23,6 +23,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class FirebaseStudioViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public ImageView mStudioImageView;
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -41,12 +42,13 @@ public class FirebaseStudioViewHolder extends RecyclerView.ViewHolder implements
         TextView nameTextView = (TextView) mView.findViewById(R.id.studioNameTextView);
         TextView categoryTextView = (TextView) mView.findViewById(R.id.categoryTextView);
         TextView ratingTextView = (TextView) mView.findViewById(R.id.ratingTextView);
+        mStudioImageView = (ImageView) mView.findViewById(R.id.studioImageView);
 
         Picasso.with(mContext)
                 .load(studio.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(studioImageView);
+                .into(mStudioImageView);
 
         nameTextView.setText(studio.getName());
         categoryTextView.setText(studio.getCategories().get(0));
