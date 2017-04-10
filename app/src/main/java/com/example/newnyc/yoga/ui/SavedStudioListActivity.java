@@ -35,7 +35,7 @@ public class SavedStudioListActivity extends Activity {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Studio, FirebaseStudioViewHolder>
-                (Studio.class, R.layout.studio_list_item, FirebaseStudioViewHolder.class, mStudioReference) {
+                (Studio.class, R.layout.studio_list_item_drag, FirebaseStudioViewHolder.class, mStudioReference) {
 
             @Override
             protected void populateViewHolder(FirebaseStudioViewHolder viewHolder, Studio model, int position) {
