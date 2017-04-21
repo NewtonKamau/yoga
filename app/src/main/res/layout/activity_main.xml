@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:text="Yoga Studio"
         android:id="@+id/appNametextView"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorPrimary"
         android:textSize="60sp"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"

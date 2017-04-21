@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:text="Yoga Studio"
         android:id="@+id/appNametextView"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorPrimary"
         android:textSize="60sp"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
@@ -30,10 +30,9 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="125dp">
+        android:layout_alignParentStart="true">
 
         <EditText
             android:id="@+id/emailEditText"
@@ -74,15 +73,15 @@
             android:textColor="@color/colorTextIcons" />
 
         <TextView
+            android:id="@+id/registerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
-            android:textStyle="bold"
-            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
             android:text="Don't have an account? Sign up here!"
-            android:id="@+id/registerTextView"
-            android:layout_gravity="center_horizontal" />
+            android:textColor="@color/colorTextIcons"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

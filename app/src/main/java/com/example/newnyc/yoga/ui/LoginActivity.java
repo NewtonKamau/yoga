@@ -63,23 +63,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         };
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
 //login with password method
     private void loginWithPassword() {
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
+
 //    checks if email and password is blank and shows an error message
         if (email.equals("")) {
             mEmailEditText.setError("Please enter your email");
@@ -95,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                mAuthProgressDialog.dismiss();
+                mAuthProgressDialog.show();
 
                 if (!task.isSuccessful()) {
                     Log.w(TAG, "signInWithEmail", task.getException());
@@ -106,13 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
 
     }
-//progress dialog to show the user the authentication process
-    private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
-        mAuthProgressDialog.setCancelable(false);
-    }
+
 
     @Override
     public void onClick(View view) {
@@ -127,5 +110,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             loginWithPassword();
         }
 
+    }
+    //progress dialog to show the user the authentication process
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }

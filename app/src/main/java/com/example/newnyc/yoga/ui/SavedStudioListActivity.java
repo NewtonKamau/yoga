@@ -36,8 +36,8 @@ public class SavedStudioListActivity extends AppCompatActivity implements OnStar
         ButterKnife.bind(this);
         setUpFirebaseAdapter();
 
-//        mStudioReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_STUDIO);
-//        setUpFirebaseAdapter();
+        mStudioReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_STUDIO);
+        setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
